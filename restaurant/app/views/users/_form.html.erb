@@ -1,0 +1,42 @@
+<%= form_for user, :html => { :class => "form-horizontal user" } ,remote: true  do |f| %>
+
+   <div id="error_list">
+    <%= render :partial => 'error_list' ,locals: {user: user} %>
+   </div>
+
+  <div class="control-group">
+    <%= f.label :username, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :username, :class => 'form-control' %>
+    </div>
+    <%= error_span(user[:username]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :class => 'form-control' %>
+    </div>
+    <%= error_span(user[:password]) %>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :Conform_password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, :class => 'form-control' %>
+    </div>
+    <%= error_span(user[:password_confirmation]) %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :Admin_Password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :admin_password, :class => 'form-control' %>
+    </div>
+    <%= error_span(user[:Admin_Password]) %>
+  </div>
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            users_path, :class => 'btn btn-default' %>
+
+<% end %>

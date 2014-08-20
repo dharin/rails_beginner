@@ -1,0 +1,11 @@
+
+<% if @user.errors.any? %>
+
+$("#error_list").html("<%= escape_javascript(render :partial => "/users/error_list" ,:locals => {:user => @user } ) %>");
+<% else %>
+
+$("#list_of_user").html("<%= escape_javascript(render :partial => "/users/list_of_users" ,:locals => {:users => User.all } ) %>");
+$("#user_form").html("<%= escape_javascript(render :partial => "/users/form",   locals: { user: User.new } )%>");
+$("#flash").html("<%= escape_javascript( render partial: 'flash' )%>");
+
+<% end %>

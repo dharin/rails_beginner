@@ -1,0 +1,13 @@
+
+		<td bgcolor="#00FF00" >    10   </td>
+		<td bgcolor="#00FF00"> <%= user.username %> </td>
+		<td bgcolor="#00FF00"> <%= user.password %> </td>
+		<td bgcolor="#00FF00"> <%= user.isadmin %>  </td>
+		<td>
+ 		
+ 			<%= link_to 'edit' ,edit_user_path(user) ,:remote => true %>
+ 		
+ 		</td>
+ 		<td> 
+			<%= link_to 'Delete User?', user, :confirm => 'Are you sure?', :method => :delete ,:remote => true %>
+ 		</td>
