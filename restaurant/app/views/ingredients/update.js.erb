@@ -1,0 +1,9 @@
+<% if@ingredient.errors.any? %>
+
+$("#error").html("<%= escape_javascript(render :partial => "/ingredients/error_list" ,:locals => { :user => @ingredient } ) %>")
+<% else %>
+
+$("#list").html("<%= escape_javascript(render :partial => "/ingredients/list" ,:locals => { :ingredients => @user.ingredients } ) %>");
+$("#form").html("<%= escape_javascript(render :partial => "/ingredients/form" ,:locals => { :@user => @user ,:@ingredient => @user.ingredients.build } ) %>");
+$("#flash").html("<%= escape_javascript( render partial: "users/flash" )%>");
+<% end %>

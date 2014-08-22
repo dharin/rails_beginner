@@ -1,0 +1,17 @@
+
+
+<div class="contailer-flun">
+
+<%= form_for [@recipe.user, @recipe]  ,:html => { :class => "form-horizontal user",:role => "form"} do |f| %>
+	<div class="row">
+		<div class="col-md-9" >
+			<%= f.text_field :name  ,:placeholder => 'Recipe Name',:class => 'form-control' %>
+		</div>
+		<div class="col-md-3" >
+			<%= f.submit 'create Recipe' ,:class => "btn btn-primary btn-md"%>
+		</div>
+	</div>
+
+	</div>
+<% end %>
+</div>

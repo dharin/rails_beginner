@@ -1,0 +1,35 @@
+<div id="error">
+    <%= render :partial => 'error_list' ,locals: {user: @ingredient} %>
+ </div>
+
+ <div class="contailner" >
+
+<%= form_for [@user, @ingredient] ,:html => { :class => "form-horizontal user",:role => "form"} ,:remote => true   do |f| %>
+<div class="row">
+
+<div class="col-lg-4">
+		<%= f.text_field :name ,:class => 'form-control',:placeholder => 'Ingredient' %> 
+</div>
+
+
+<div class="col-lg-2">
+	<%= f.collection_select( :unit_id, Unit.all, :id, :name,{ prompt: true},:class => 'form-control') %>
+</div>
+
+<div class ='col-lg-2'>
+		<%= f.text_field :rate ,:class => 'form-control',:placeholder => 'Rate of Ingredient'%>
+</div>
+
+<div class ='col-lg-4'>
+		<%= f.submit 'Add Ingredient' ,:class => "btn btn-primary btn-md"  %>
+	 <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            users_path, :class => 'btn btn-default' %>
+
+
+</div>	
+
+</div>
+<% end %>
+
+
+</div>

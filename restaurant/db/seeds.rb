@@ -5,5 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.create(:username => 'rajnik', :password => '12345678', :isadmin => true ,:password_confirmation => '12345678')
+Unit.create([{:name => 'Kilogram'},{:name => 'Liter'},{:name => 'Gram'}])

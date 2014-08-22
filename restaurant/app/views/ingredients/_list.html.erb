@@ -1,0 +1,33 @@
+<table class="table table-hover">
+<tr>
+	<th>Ingredient Name </th>
+	<th>Unit </th>
+	<th>Rate </th>
+	<th>Action</th>
+</tr>
+
+<% ingredients.each do |ingredient| %>
+<tr>
+	<td><%= ingredient.name %></td>
+	<td>	
+		<% if ingredient.unit.present? && ingredient.unit.name.present? %>
+		<%= ingredient.unit.name   %>
+		<% end %>
+	</td>
+	<td><%= ingredient.rate %></td>
+	<td>
+			<% if ingredient.id.present? %>
+		 	<%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_ingredient_path(ingredient.user.id,ingredient.id), :class => 'btn btn-default btn-xs' ,:remote => true%>
+          
+			<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_ingredient_path(ingredient.user.id,ingredient.id),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you ingredient?')) },
+                      :class => 'btn btn-xs btn-danger' ,:remote => true %>
+			<% end %>
+	</td>
+</tr>
+<% end %>
+
+</table>

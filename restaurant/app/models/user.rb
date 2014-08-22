@@ -8,6 +8,10 @@ attr_reader :admin_password,:password_confirmation
 	validates_confirmation_of :password
   validate :password_contains_username,:chech_admin
 
+  has_many :ingredients  
+  has_many :recipes
+  accepts_nested_attributes_for :ingredients
+
 
   def password_contains_username
     if password.include? username

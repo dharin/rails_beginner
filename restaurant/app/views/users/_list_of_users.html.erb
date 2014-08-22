@@ -1,11 +1,11 @@
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th><%= 'Sr.No.'%></th>
-      <th><%= :username %></th>
-      <th><%= :password %></th>
-      <th><%= :isadmin %></th>
+      <th><%= :Username %></th>
+      <th><%= :Password %></th>
+      <th><%= :Isadmin %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -25,6 +25,13 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' ,:remote => true %>
+                  <%= link_to "Ingredient" ,user_ingredients_path(user),:class =>"btn btn-primary btn-xs" ,:type => "button" %>
+                 
+                   <%= link_to "Recipe" , user_recipes_path(user),:class =>"btn btn-primary btn-xs" ,:type => "button" %>
+                 
+        </td>
+        <td>
+          
         </td>
       </tr>
     <% end %>

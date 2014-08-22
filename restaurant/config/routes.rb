@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  resources :articles
+ 
 
-  resources 'users'
-  root 'sessions#new'
-resource 'session' ,:only => [:new ,:create ,:destroy ]
+
+
+  resources :users do 
+    resources :ingredients
+    resources :recipes
+  end
+  
+  root 'users#index'
+  resource 'session' ,:only => [:new ,:create ,:destroy ]
 
 get '/login' => "sessions#new", :as => "login"
 get '/logout' => "sessions#destroy", :as => "logout"

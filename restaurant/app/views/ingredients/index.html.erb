@@ -1,0 +1,12 @@
+
+<div class="page-header">
+  <h1> <%= link_to @user.username , users_path %></h1>
+</div>
+
+<div id="form">
+   <%= render partial: "form", locals: { :@user => @user ,:@ingredient => @user.ingredients.build } %>
+</div>
+</br>
+<div id="list">
+   <%= render partial: "list", locals: { :ingredients => @user.ingredients } %>
+</div>

@@ -1,0 +1,7 @@
+<%if @recipe.errors.any? %>
+
+$("#error").html("<%= escape_javascript(render :partial => "error" ,:locals => {:@recipe => @recipe} ) %>");
+<% else %>
+$("#error").html("<%= escape_javascript(render :partial => "error" ,:locals => {:@recipe => Recipe.new} ) %>");
+
+<% end %>
